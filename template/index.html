@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Physics and AI">
+    
+    <link rel="shortcut icon" href="https://des137.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <title>Template</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://des137.github.io">Omega-minus</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Template</h1><time>February 13, 2021</time></header><p>The headers can be created using #:</p>
+<h2 id="header-2">Header 2</h2>
+<p>(H1 reserved for posts)</p>
+<h3 id="header-3">Header 3</h3>
+<h4 id="header-4">Header 4</h4>
+<p>There are three ways a weblink can be embedded: <a href="https://arxiv.org/">Arxiv</a>,  or <a href="https://arxiv.org/">Arxiv</a>, or <a href="https://arxiv.org/">https://arxiv.org/</a>.</p>
+<p>A list can be create using either *, -, or +:</p>
+<ul>
+<li>item 1</li>
+</ul>
+<ul>
+<li>itme 2</li>
+</ul>
+<ul>
+<li>item 3
+<ul>
+<li>subitem 1 (A single tab key)</li>
+<li>subitem 2</li>
+</ul>
+</li>
+</ul>
+<p>An ordered list with various styled fonts</p>
+<ol>
+<li><em>italic</em> line or <em>italic</em> line</li>
+<li><strong>bold</strong> line</li>
+<li><del>deleted</del> line</li>
+<li><ins>underlined</ins> line</li>
+<li>code: <code>import numpy as np</code></li>
+<li>Superscript <sup>text</sup> and subscript <sub>text</sub></li>
+</ol>
+<p>Quotes can be included using &lsquo;&gt;&rsquo; (and &lsquo;&raquo;') sign:</p>
+<blockquote>
+<p>&ldquo;Cargo Cult Science&rdquo;, adapted from a 1974 Caltech commencement address; also published in Surely You&rsquo;re Joking, Mr. Feynman!</p>
+<blockquote>
+<p>The first principle is that you must not fool yourself — and you are the easiest person to fool.</p>
+</blockquote>
+</blockquote>
+<p>A formula can be included: $S=ut+\frac{1}{2}at^2$, or it can be in a new block:</p>
+<p>$$ \mathcal{L} = \int\bar{\Psi}(i\gamma^\mu D_\mu - m)\Psi$$</p>
+<p>or
+\begin{equation}
+S = k_B \ln{W}
+\end{equation}</p>
+<p>Codes can be embedded as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_breast_cancer
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">from</span> sklearn.naive_bayes <span style="color:#f92672">import</span> GaussianNB
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    cancer <span style="color:#f92672">=</span> load_breast_cancer()
+    X <span style="color:#f92672">=</span> cancer<span style="color:#f92672">.</span>data
+    y <span style="color:#f92672">=</span> cancer<span style="color:#f92672">.</span>target
+    X_train, X_test, y_train, y_test <span style="color:#f92672">=</span>\
+    train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.33</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+    gnb <span style="color:#f92672">=</span> GaussianNB()
+    gnb<span style="color:#f92672">.</span>fit(X_train, y_train)
+
+    <span style="color:#75715e"># Metrics</span>
+    <span style="color:#66d9ef">print</span>(confusion_matrix(y_test, gnb<span style="color:#f92672">.</span>predict(X_test)))
+    plt<span style="color:#f92672">.</span>scatter(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>,len(y_test)) <span style="color:#f92672">+</span> y_test,\ 
+            np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>,<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>,len(y_test)) <span style="color:#f92672">+</span> gnb<span style="color:#f92672">.</span>predict(X_test))
+    plt<span style="color:#f92672">.</span>show()
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span><span style="color:#e6db74">&#39;__main__&#39;</span>:
+    main()
+</code></pre></div><h2 id="tables">Tables</h2>
+<p>Tables aren&rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.</p>
+<table>
+<thead>
+<tr>
+<th>Species</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Setosa</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Virginica</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<p>Horizontal lines</p>
+<hr>
+<hr>
+<p>Additions might be made to this post depending on the discovery of additional style elements.</p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2021 Amol Deshmukh
+</footer>
+</body>
+</html>
